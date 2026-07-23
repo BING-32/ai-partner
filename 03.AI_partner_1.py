@@ -3,6 +3,10 @@ import os
 from openai import OpenAI
 from datetime import datetime
 import json
+from dotenv import load_dotenv
+
+# 加载环境变量
+load_dotenv()
 
 # 设置页面的配置项
 st.set_page_config(
@@ -79,8 +83,9 @@ def delete_session(session_name):
 # 大标题
 st.title("AI智能伴侣")
 
-# Logo
-st.logo("resources/dengziq.jpg")
+# Logo (可选)
+if os.path.exists("resources/dengziq.jpg"):
+    st.logo("resources/dengziq.jpg")
 
 # 系统提示词
 system_prompt = """
